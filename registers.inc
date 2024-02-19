@@ -1,0 +1,16 @@
+rz equ 0
+ra equ 1
+rb equ 2
+rc equ 3
+rd equ 4
+re equ 5
+rf equ 6
+rg equ 7
+rh equ 8
+ri equ 9
+rj equ 10
+rk equ 11
+ip equ 12
+sp equ 13
+fp equ 14
+st equ 15
