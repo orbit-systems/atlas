@@ -54,7 +54,13 @@ macro INST_B func, imm, op {
 	end if
 
 	se_imm = $%% - imm ; get offset from label
-	se_imm = 0xFFFFF + 1 - se_imm/4 ; sign extend
+	if se_imm < 0 
+		se_imm = 0xFFFFF + 1 - se_imm/4 ; sign extend
+	else 
+		se_imm = se_imm/4
+	end if
+
+	
 
 	db op
 	db (se_imm and 0xFF)

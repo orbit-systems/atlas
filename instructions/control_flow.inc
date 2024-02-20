@@ -1,13 +1,21 @@
 macro jal rs, imm {
 	se_imm = $%% - imm ; get offset from label
-	se_imm = 0xFFFFF + 1 - se_imm/4 ; sign extend
+	if se_imm < 0 
+		se_imm = 0xFFFF + 1 - se_imm/4 ; sign extend
+	else
+		se_imm = se_imm/4
+	end if
 
 	INST_M 0, rs, se_imm, 0x06, 0
 }
 
 macro jalr rs, imm, rd {
 	se_imm = $%% - imm ; get offset from label
-	se_imm = 0xFFFFF + 1 - se_imm/4 ; sign extend
+	if se_imm < 0 
+		se_imm = 0xFFFF + 1 - se_imm/4 ; sign extend
+	else
+		se_imm = se_imm/4
+	end if
 
 	INST_M rd, rs, se_imm, 0x07, 0
 }
