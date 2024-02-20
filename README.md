@@ -1,2 +1,2 @@
 # atlas
-FASM-G addon to compile aphelion ELF files
+FASM-G addon to compile aphelion assembly
